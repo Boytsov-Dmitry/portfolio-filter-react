@@ -56,8 +56,8 @@ const item = {
   }, {
     img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
     category: "Flayers"
-  }]
-  // onSelectFilter: onSelectFilter(filter)
+  }],
+  onSelectFilter: onSelectFilter()
 }
 
 
@@ -83,9 +83,12 @@ function Projects({ projectsList }) {
 
 // Маппинг фильтров 
 
-function Tollbar({ filters, selected}) {
+function Tollbar({ filters, selected, onSelectFilter}) {
+  function onSelectFilter() {
+    console.log(selected)
+  }
   const mappingFilters = filters.map(filter => 
-    <button>{filter}</button>
+    <button onClick={onSelectFilter}>{filter}</button>
   )
 
   return(
@@ -96,12 +99,16 @@ function Tollbar({ filters, selected}) {
 // Родительский компонент
 
 function Portfolio() {
-  const {selectedFilter, setFilter} = useState("All");
+  const {list, setList} = useState(item.projectsList);
+
+  // const a = () => {
+  //   setList(list === onClick)
+  // }
 
   return(
     <div>
       <Tollbar {...item}/>
-      <Projects {...item} />
+      <Projects {...item}/>
     </div>
   );
 };
