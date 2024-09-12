@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import '../App.css'
+import '../App.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const item = {
   filters: ["All", "Websites", "Flayers", "Business Cards"],
@@ -59,6 +60,19 @@ const item = {
   // onSelectFilter: onSelectFilter(filter)
 }
 
+
+// Присваивание ID проектам
+
+function setId(projects) {
+  for(const project of projects) {
+    project.id = uuidv4()
+  };
+};
+
+setId(item.projectsList)
+
+// Маппинг проектов
+
 function Projects({ projectsList }) {
   const mappingProjects = projectsList.map(project => <img src={project.img} />)
 
@@ -67,15 +81,19 @@ function Projects({ projectsList }) {
   )
 }
 
+// Маппинг фильтров 
+
 function Tollbar({ filters, selected}) {
   const mappingFilters = filters.map(filter => 
-    <li>{filter}</li>
+    <button>{filter}</button>
   )
 
   return(
     <ul className='filter-list'>{mappingFilters}</ul>
   )
 }
+
+// Родительский компонент
 
 function Portfolio() {
   const {selectedFilter, setFilter} = useState("All");
