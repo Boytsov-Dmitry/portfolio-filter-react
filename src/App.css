@@ -1,0 +1,17 @@
+body {
+    background-color: white;
+    color: black;
+}
+  
+.filter-list {
+    display: flex;
+}
+
+.filter-button {
+    margin: 2px;
+    width: 80px;
+    height: 40px;
+    border: 1 grey solid; 
+    border-radius: 2;
+    outline: none;
+}
