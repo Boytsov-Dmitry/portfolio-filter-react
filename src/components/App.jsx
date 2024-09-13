@@ -7,7 +7,7 @@ import listOfProjects from './data.json';
 
 const item = {
   filters: ["All", "Websites", "Flayers", "Business Cards"],
-  selected: "All",
+  selected: item.filters[0],
   onSelectFilter: ''
 }
 
