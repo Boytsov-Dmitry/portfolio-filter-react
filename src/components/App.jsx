@@ -15,6 +15,8 @@ const item = {
 function Portfolio() {
   const {list, setList} = useState(listOfProjects);
 
+
+
   return(
     <div>
       <Toolbar {...item}/>

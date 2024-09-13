@@ -1,7 +1,17 @@
+import listOfProjects from './data.json'
+
 export default function Toolbar({ filters, selected, onSelectFilter}) {
+    const updatedList = []
+
     function onSelectFilter() {
-      console.log(selected)
+      for(const project of listOfProjects){
+        if(project.category === filter) {
+          updatedList.push(project)
+          console.log(updatedList)
+        }
+      }
     }
+    
     const mappingFilters = filters.map(filter => 
       <button className={'filter-button'} onClick={onSelectFilter}>{filter}</button>
     )
