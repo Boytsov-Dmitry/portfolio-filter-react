@@ -1,6 +1,7 @@
 import listOfProjects from './data.json'
 
 export default function Toolbar({ filters, selected, onSelectFilter}) {
+    
     const updatedList = []
 
     function onSelectFilter() {
