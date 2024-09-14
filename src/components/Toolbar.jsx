@@ -1,18 +1,15 @@
-import listOfProjects from './data.json'
-
 export default function Toolbar({ filters, selected, onSelectFilter}) {
-    
-    const updatedList = []
-
     function onSelectFilter() {
-      for(const project of listOfProjects){
-        if(project.category === filter) {
-          updatedList.push(project)
-          console.log(updatedList)
-        }
-      }
+      console.log(filter)
+
+      console.log("Из тулбара " + selected)
+      // for(const project of listOfProjects){
+      //   if(project.category === selected) {
+      //     // updatedList.push(project)
+      //   }
+      // }
     }
-    
+
     const mappingFilters = filters.map(filter => 
       <button className={'filter-button'} onClick={onSelectFilter}>{filter}</button>
     )
