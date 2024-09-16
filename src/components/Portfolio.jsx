@@ -4,8 +4,10 @@ import listOfProjects from './data.json';
 import { v4 as uuidv4 } from 'uuid'
 import ProjectList from './ProjectList';
 
-listOfProjects.map((project) => project.id=uuidv4())
-const listWithID = listOfProjects
+const listWithID = listOfProjects.map((project) => ({
+  ...project,
+  id: uuidv4(),
+}));
 
 export default function Portfolio() {
     const filters = ["All", "Websites", "Flayers", "Business Cards"]
@@ -25,7 +27,7 @@ export default function Portfolio() {
         setList(listWithID.filter(listItem => listItem.category===filter))
       }
 
-      setSelected()
+      setSelected(filter)
     }
 
     return(
