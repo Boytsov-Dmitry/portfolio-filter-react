@@ -18,16 +18,14 @@ export default function Portfolio() {
     const [selected, setSelected] = useState("All");
   
     function onSelectFilter(filter) {
-      setSelected()
+
       if(filter==='All') {
         setList(listWithID)
       } else {
         setList(listWithID.filter(listItem => listItem.category===filter))
       }
 
-      // if(filter==='All') {
-      //   setSelected(filter)
-      // }
+      setSelected()
     }
 
     return(
