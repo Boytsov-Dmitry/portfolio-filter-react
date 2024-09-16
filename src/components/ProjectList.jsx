@@ -1,11 +1,11 @@
-import listOfProjects from './data.json'
-import { v4 as uuidv4 } from 'uuid'
-
-
-export default function Projects() {
-    const mappingProjects = listOfProjects.map(project => <img src={project.img} category={project.category} id={uuidv4()}/>)
-  
+export default function ProjectList({ list }) {
     return(
-      <ul>{mappingProjects}</ul>
+      <ul className={'projectList'}>
+        {list.map((item) => (
+          <li key={item.id}>
+            <img className={'projectItem'} src={item.img} />
+          </li>
+        ))}
+      </ul>
     )
 };
